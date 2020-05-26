@@ -48,13 +48,19 @@ namespace FSM_Simple
                     string origen = Console.ReadLine();
                     Console.Write("Ingresa con que te moveras: ");
                     char tok = char.Parse(Console.ReadLine());
-                    Console.Write("Ingresa el destino");
-                    string Destino = Console.ReadLine();
+                    if (Sigma.Contains(tok))
+                    {
+                        Console.Write("Ingresa el destino: ");
+                        string Destino = Console.ReadLine();
+                        Delta.Add(new Transition(origen, tok, Destino));
 
-                    Delta.Add(new Transition(origen, tok, Destino));
-                    
+                    }
+                    else
+                    {
+                        Console.Write("No se cuenta con esa letra del alfabeto");
+                    }
+
                 }
-               
                 //    var Delta = new List<Transition>{
                 //new Transition("q0", 'a', "q1"),
                 //new Transition("q0",'b',"q0"),
@@ -65,12 +71,8 @@ namespace FSM_Simple
                 //new Transition("q3",'a',"q4"),
                 //new Transition("q3",'b',"q2"),
                 //new Transition("q4",'b',"q4")
-
-
-
-
                 var Q0 = "q0";
-                Console.Write("Ingrese el final(q0): ");
+                Console.Write("Ingrese el final(q+numero): ");
                 string estado_fin = Console.ReadLine();
                 var F = new List<string> { estado_fin };
                 Console.Write("ingrese la cantidad de cadenas a evaluar: ");

@@ -71,7 +71,7 @@ namespace FSM_Simple{
             return;
          }
          ConsoleWriter.Failure("Se detuvo en el estado " + currentState +
-                               " El cual no eselestado final.");
+                               " El cual no es el estado final.");
          ConsoleWriter.Failure(steps.ToString());
       }
 
@@ -92,7 +92,7 @@ namespace FSM_Simple{
 
       private bool InputContainsNotDefinedSymbols(string input){
          foreach (var symbol in input.ToCharArray().Where(symbol => !Sigma.Contains(symbol))){
-            ConsoleWriter.Failure("No se acepto la cadena por que el esta letra " + symbol + " no es parte del alfabeto");
+            ConsoleWriter.Failure("No se acepto la cadena por que esta letra " + symbol + " no es parte del alfabeto");
             return true;
          }
          return false;
